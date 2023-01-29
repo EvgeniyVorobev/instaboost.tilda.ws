@@ -336,14 +336,9 @@ function parse(str) {
     return -1 == form.getAttribute("action").indexOf(window.tildaForm.endpoint) && (t_removeClass(btnSubmit, "t-btn_sending"),
     btnSubmit.tildaSendingStatus = "3",
     form.submit(),
-    !0)
-}
-},500)
-
-</script>
-
-<script>
-  window.myAfterSendedFunction = function (form) {
+    !0);
+           
+    window.myAfterSendedFunction = function (form) {
       return false;
     if (!form) return;
     if (form instanceof jQuery) {
@@ -378,3 +373,8 @@ function parse(str) {
       });
     });
   }
+       
+}
+},500)
+
+  
