@@ -316,6 +316,8 @@ let it = setInterval(()=>{
                                         title: d,
                                         referer: window.location.href
                                     }),
+                                        let url = $(form).find('input[name="website"]').val();
+                                        document.location['href'] = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${url}`;
                                         t_triggerEvent(form, "tildaform:aftersuccess"),
                                         window.tildaForm.successEnd(form, e, r)
                                 } else {
@@ -335,8 +337,6 @@ let it = setInterval(()=>{
                                         t_addClass(form, "js-send-form-error"),
                                         t_triggerEvent(form, "tildaform:aftererror")
                                 }
-                            let url = $(form).find('input[name="website"]').val();
-                            document.location['href'] = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${url}`;
                         }
                         ,
                         xhr.send(dataForm),
