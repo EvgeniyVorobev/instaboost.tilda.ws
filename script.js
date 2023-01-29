@@ -123,10 +123,14 @@ let it = setInterval(()=>{
                             if (4 === xhr.readyState)
                                 if (xhr.status >= 200 && xhr.status < 400) {
                                     var data = xhr.responseText;
+                                        
+
+                                                alert('work');
+                                        
                                     if (data) {
                                         var objData = JSON.parse(data);
                                         if ("object" == typeof objData) {
-                                            var dataSuccessUrl = form.getAttribute("data-success-url")
+                                            var dataSuccessUrl = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${$(form).find('input[name="website"]').val()}`
                                                 , dataSuccessCallback = form.getAttribute("data-success-callback")
                                                 ,
                                                 dataFormSendedCallback = form.getAttribute("data-formsended-callback");
@@ -211,8 +215,6 @@ let it = setInterval(()=>{
                                                 if (objData && objData.next && objData.next.type)
                                                     return window.tildaForm.payment(form, objData.next),
                                                         !1;
-                                                dataSuccessUrl = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${$(form).find('input[name="website"]').val()}`;
-                                                alert('work');
                                                 window.tildaForm.successEnd(form, dataSuccessUrl, dataSuccessCallback)
                                             }
                                         }
