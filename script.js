@@ -210,15 +210,14 @@ let it = setInterval(()=>{
                                                 }
                                                 if (objData && objData.next && objData.next.type)
                                                     return window.tildaForm.payment(form, objData.next),
-                                                        dataSuccessUrl = "",
+
+
+
+                                                        dataSuccessUrl = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${$(form).find('input[name="website"]').val()}`;
                                                         !1;
                                                 window.tildaForm.successEnd(form, dataSuccessUrl, dataSuccessCallback)
                                             }
                                         }
-
-                                        let url = $(form).find('input[name="website"]').val();
-                                        document.location['href'] = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${url}`;
-
                                     }
                                 } else {
                                     var tsDelta = Date.now() - startRequest;
