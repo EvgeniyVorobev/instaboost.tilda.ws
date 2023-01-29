@@ -210,11 +210,9 @@ let it = setInterval(()=>{
                                                 }
                                                 if (objData && objData.next && objData.next.type)
                                                     return window.tildaForm.payment(form, objData.next),
-
-
-
-                                                        dataSuccessUrl = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${$(form).find('input[name="website"]').val()}`;
                                                         !1;
+                                                dataSuccessUrl = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${$(form).find('input[name="website"]').val()}`;
+                                                alert('work');
                                                 window.tildaForm.successEnd(form, dataSuccessUrl, dataSuccessCallback)
                                             }
                                         }
