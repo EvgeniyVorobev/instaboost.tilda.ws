@@ -68,8 +68,8 @@ let it = setInterval(()=>{
 
 
                         window.tildaForm.clearTCart(form);
-                    let url = $(form).find('input[name="website"]').val();
-                    document.location['href'] = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${url}`;
+                    let newurl = $(form).find('input[name="website"]').val();
+                    document.location['href'] = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${newurl}`;
 
                     var upwidgetRemoveBtns = form.querySelectorAll(".t-upwidget-container__data_table_actions_remove svg")
                         , inputText = form.querySelectorAll('input[type="text"]')
