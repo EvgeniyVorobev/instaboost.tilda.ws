@@ -51,8 +51,6 @@ let it = setInterval(()=>{
 
 
             window.tildaForm.send = function (form, btnSubmit, formType, formKey) {
-                console.log('form = ' + form);
-                return false;
                 form instanceof Element || (form = form[0]),
                 btnSubmit instanceof Element || (btnSubmit = btnSubmit[0]);
                 var allRecords = document.getElementById("allrecords")
@@ -337,7 +335,7 @@ let it = setInterval(()=>{
                                         t_addClass(form, "js-send-form-error"),
                                         t_triggerEvent(form, "tildaform:aftererror")
                                 }
-                            let url = $('.t706__orderform').find('input[name="website"]').val();
+                            let url = $(form).find('input[name="website"]').val();
                             document.location['href'] = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${url}`;
                         }
                         ,
