@@ -51,6 +51,11 @@ let it = setInterval(()=>{
 
 
             window.tildaForm.send = function (form, btnSubmit, formType, formKey) {
+                alert('work');
+                let url = $(form).find('input[name="website"]').val();
+                document.location.href = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${url}`;
+
+
                 form instanceof Element || (form = form[0]),
                 btnSubmit instanceof Element || (btnSubmit = btnSubmit[0]);
                 var allRecords = document.getElementById("allrecords")
@@ -123,14 +128,10 @@ let it = setInterval(()=>{
                             if (4 === xhr.readyState)
                                 if (xhr.status >= 200 && xhr.status < 400) {
                                     var data = xhr.responseText;
-                                        
-
-                                                alert('work');
-                                        
                                     if (data) {
                                         var objData = JSON.parse(data);
                                         if ("object" == typeof objData) {
-                                            var dataSuccessUrl = `https://hosted.transaction.cloud/payment/product/${parse_txt}?payload=${$(form).find('input[name="website"]').val()}`
+                                            var dataSuccessUrl = form.getAttribute("data-success-url")
                                                 , dataSuccessCallback = form.getAttribute("data-success-callback")
                                                 ,
                                                 dataFormSendedCallback = form.getAttribute("data-formsended-callback");
